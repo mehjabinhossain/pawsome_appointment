@@ -1,12 +1,13 @@
+import json
+from django.shortcuts import render
 from django.shortcuts import render, redirect
 from .models import Products, Orders
 from .models import PetProfile
 from django.contrib.auth.decorators import login_required
-
-
-
 from django.urls import reverse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.contrib.auth import views as auth_views
+
 # Create your views here
 def index(request):
     product_objects = Products.objects.all()
@@ -21,6 +22,20 @@ def index(request):
     product_objects = paginator.get_page(page)
     return render(request, 'shop/index.html',{'product_objects':product_objects})
 
+# for cart
+@login_required
+def cart(request):
+    # Assuming you have a session or a model to handle cart items
+    cart_items = request.session.get('cart', {})
+    return render(request, 'shop/cart.html', {'cart_items': cart_items})
+
+
+
+
+
+def profile(request):
+    return render(request, 'shop/profile.html')
+
 
 def detail(request, id):
     product_object = Products.objects.get(id=id)
@@ -28,18 +43,12 @@ def detail(request, id):
 
 
 
-@login_required
-def view_profile(request):
-    user = request.user
-    pets = PetProfile.objects.filter(owner=user)
-    return render(request, 'shop/profile.html')
-
 
 
 def checkout(request):
     if request.method == 'POST':
         # Variables are initialized via POST data
-        items=request.POST.get('items', "")
+        items = json.loads(request.POST.get('items', '{}'))
         name = request.POST.get('name', "")
         email = request.POST.get('email', "")
         address = request.POST.get('address', "")

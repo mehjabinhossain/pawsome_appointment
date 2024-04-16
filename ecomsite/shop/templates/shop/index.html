@@ -27,15 +27,14 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only"></span></a>
+        <a class="nav-link" >Home <span class="sr-only"></span></a>
       </li>
-      <li class="nav-item">
+     <li class="nav-item">
         <a class="nav-link" href="{% url 'profile' %}">My Profile</a>
-
-      </li>
+     </li>
       <li class="nav-item">
       <button id="cart" data-html="true" type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
-          Cart(0)
+          Appoint
       </button>
       </li>
       <li class="nav-item dropdown">
@@ -228,22 +227,33 @@ function updateCartButton() {
     let totalItems = Object.values(cart).reduce((total, item) => total + item[0], 0);
     document.getElementById("cart").innerHTML = "Cart(" + totalItems + ")";
 }
-function displayCart() {
-    var cartString = "<h2>This is my cart</h2>";
+displayCart(cart);
+function displayCart(cart) {
+    var cartString = "<h2>Appoint</h2>";
     var cartIndex = 1;
-    for (var item in cart) {
-        cartString += cartIndex + ". " + cart[item][1] + " Qty: " + cart[item][0] + "<br>";
-        cartIndex += 1;
-    }
-    cartString += "<a href='/checkout'><button class='btn btn-warning' id='checkout'>Check Out</button></a>"
-    document.getElementById("cart").setAttribute('data-content', cartString);
+
+    for (var x in  cart) {
+     cartString +=cartIndex ;
+      cartString +=document.getElementById("nm"+x).innerHTML+"Qty:"+cart[x]
+             cartIndex += 1;
+
+}
+    cartString += "<a href='/checkout'><button class='btn btn-warning' id='checkout'>Appointed Doctor</button></a>"
+        document.getElementById("cart").setAttribute('data-content', cartString);
     $('[data-toggle="popover"]').popover();
+
+
+
+
+
 }
 
 
+
+
 $(document).ready(function() {
-    updateCartButton();  // Update cart count on page load
-    displayCart();       // Initial display of cart popover
+    updateCartButton();
+    displayCart();
 });
 </script>
 
