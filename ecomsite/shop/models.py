@@ -10,6 +10,8 @@ class Products(models.Model):
     description = models.TextField()
     image = models.CharField(max_length=300)
 
+#THIS
+
 
 class Orders(models.Model):
 
