@@ -24,9 +24,11 @@ urlpatterns = [
     path('index/', views.index, name='index'),
     path('<int:id>/', views.detail, name='detail'),
     path('checkout/', views.checkout, name='checkout'),
+    path('about-us/', views.about_us, name='about_us'),
     path('', views.index, name='home'),
     path('cart/', views.cart, name='cart'),
     path('profile/', views.profile, name='profile'),
+
 
 
 ]

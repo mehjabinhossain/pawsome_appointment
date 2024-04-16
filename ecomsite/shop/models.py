@@ -14,7 +14,6 @@ class Products(models.Model):
 
 
 class Orders(models.Model):
-
     items=models.CharField(max_length=3000)
     name = models.CharField(max_length=100)
     email = models.CharField(max_length=100)

@@ -31,7 +31,8 @@ def cart(request):
 
 
 
-
+def about_us(request):
+    return render(request, 'shop/about_us.html')
 
 def profile(request):
     return render(request, 'shop/profile.html')
