@@ -53,6 +53,7 @@ def LogoutPage(request):
     logout(request)
     return redirect('login')
 
+@login_required(login_url='login')
 def index(request):
     product_objects = Products.objects.all()
 #search code
