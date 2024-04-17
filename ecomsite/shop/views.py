@@ -1,14 +1,29 @@
 import json
-from django.shortcuts import render
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from .models import Products, Orders
 from .models import PetProfile
-from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth import views as auth_views
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 # Create your views here
+def SignupPage(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        pass1 = request.POST.get('password1')
+        pass2 = request.POST.get('password2')
+        if pass1 != pass2:
+            return HttpResponse("Pass didn't match")
+        else:
+            my_user = User.objects.create_user(username, email, pass1)
+            my_user.save()
+            return redirect('login')
+    return render(request, 'shop/signup.html')
+
 def index(request):
     product_objects = Products.objects.all()
 #search code
