@@ -113,3 +113,6 @@ def checkout(request):
         # For GET and other methods, typically you show the form to fill out
         # You could also include initial data or context if necessary
         return render(request, 'shop/checkout.html')
+
+def pet(request):
+    return render(request,'shop/home.html')
