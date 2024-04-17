@@ -38,7 +38,7 @@ def LoginPage(request):
             if user is not None:
                 # User is authenticated, log them in
                 login(request, user)
-                return redirect('home')  # Redirect to home page
+                return redirect('index')  # Redirect to home page
             else:
                 # Authentication failed, show error message
                 return HttpResponse("Username or Password is incorrect")
@@ -48,6 +48,10 @@ def LoginPage(request):
             return HttpResponse("Please provide both username and password")
 
     return render(request, 'shop/login.html')
+
+def LogoutPage(request):
+    logout(request)
+    return redirect('login')
 
 def index(request):
     product_objects = Products.objects.all()
