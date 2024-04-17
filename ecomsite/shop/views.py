@@ -24,6 +24,31 @@ def SignupPage(request):
             return redirect('login')
     return render(request, 'shop/signup.html')
 
+
+def LoginPage(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('pass')
+
+        # Check if both username and password are provided
+        if username and password:
+            # Attempt to authenticate user
+            user = authenticate(request, username=username, password=password)
+
+            if user is not None:
+                # User is authenticated, log them in
+                login(request, user)
+                return redirect('home')  # Redirect to home page
+            else:
+                # Authentication failed, show error message
+                return HttpResponse("Username or Password is incorrect")
+
+        else:
+            # Username or password is missing
+            return HttpResponse("Please provide both username and password")
+
+    return render(request, 'shop/login.html')
+
 def index(request):
     product_objects = Products.objects.all()
 #search code
