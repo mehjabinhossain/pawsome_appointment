@@ -2,11 +2,183 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Book a Doctor's Appointment</title>
+    <style>
+
+
+
+#portfolio {
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.port_col {
+    width: 23.43%;
+    float: left;
+    margin-right: 20px;
+}
+
+.port_col:nth-child(4) {
+    margin-right: 0;
+}
+
+.port_img img {
+    width: 100%;
+    max-width: 100%;
+    transition: all linear .3s;
+    -webkit-transition: all linear .3s;
+    -moz-transition: all linear .3s;
+    -ms-transition: all linear .3s;
+    -o-transition: all linear .3s;
+}
+
+.port_mar {
+    margin-bottom: 20px;
+}
+
+.port_row {
+    padding-top: 30px;
+}
+
+.port_img {
+    position: relative;
+    overflow: hidden;
+}
+
+.port_img .overly {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    transform: scale(0);
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+    transition: all linear .3s;
+    -webkit-transition: all linear .3s;
+    -moz-transition: all linear .3s;
+    -ms-transition: all linear .3s;
+    -o-transition: all linear .3s;
+}
+
+
+.port_img:hover .overly {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform-origin: bottom;
+}
+
+.port_img:hover img {
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+}
+#main {
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+/* =====================================================
+                    Portfolio part end
+======================================================*/
+.banner_text {
+    width: 450px;
+    float: right;
+    text-align: center;
+}
+
+
+
+.banner_text a {
+    padding: 10px 20px;
+    border: 1px solid #fff;
+    margin-left: -1000px;
+    color: #425aef;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    margin-top: 25px;
+    transition: all linear .3s;
+}
+
+.banner_text a:hover {
+    background: #979da2;
+    border-color: #686b6e;
+}
+
+    </style>
 </head>
 <body>
-<h1>Pawsome appointment</h1>
-<a href="{% url 'signup' %}">Get started</a>
-<h2>this is our project</h2>
+<!-- ==================================================
+                    Portfolio part start
+    ====================================================-->
+    <section id="portfolio">
+        <div class="container">
+            <div class="common_head">
+                <h2>Pawsome Appointment </h2>
+            </div>
+            <div class="port_row">
+                <div class="port_col">
+                    <div class="port_img port_mar">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK6ulrGqo6gizfIs_fM9g5Ylku5XppTUYMx7V06SFlSQ&s" alt="">
+                        <div class="overly">
+                            <i class="fas fa-link"></i>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="port_col">
+                    <div class="port_img port_mar">
+                        <img src="	https://faithfulfriendsvetclinic.com/wp-content/uploads/2023/11/vet1.jpg" alt="">
+                        <div class="overly">
+                            <i class="fas fa-link"></i>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="port_col">
+                    <div class="port_img port_mar">
+                        <img src="https://pewaukeeveterinaryservice.com/wp-content/uploads/2019/09/iStock-1065436826.jpg" alt="">
+                        <div class="overly">
+                            <i class="fas fa-link"></i>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="port_col">
+                    <div class="port_img port_mar">
+                        <img src="https://mybayutcdn.bayut.com/mybayut/wp-content/uploads/cat-vet.jpg" alt="">
+                        <div class="overly">
+                            <i class="fas fa-link"></i>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="clr"></div>
+            </div>
+        </div>
+    </section>
+    <!-- ==================================================
+                    Portfolio part end
+    ====================================================-->
+ <section id="banner">
+        <div class="container">
+            <div class="banner_text">
+               <a href="{% url 'signup' %}">Get started</a>
+            </div>
+            <div class="clr"></div>
+        </div>
+    </section>
+
+
 </body>
 </html>
