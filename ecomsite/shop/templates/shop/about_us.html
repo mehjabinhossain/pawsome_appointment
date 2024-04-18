@@ -9,11 +9,93 @@
             background-color: #f0f9ff;
             color: #333;
         }
-        .header {
-            background: url('https://via.placeholder.com/1200x300?text=Welcome+to+Pet+Portal') no-repeat center center;
-            background-size: cover;
-            color: #fff;
-            text-shadow: 1px 1px 2px #000;
+.banner_item{
+    padding: 254px 0 117px;
+}
+
+.banner_item:after{
+    background: rgba(199, 4, 4, 0.6);
+}
+.banner_text h2{
+    position: relative;
+}
+
+.banner_text h2:after{
+    position: absolute;
+    content: '';
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 109px;
+    height: 3px;
+    background: var(--hover);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 5% 100%);
+}
+
+.banner_text h2:before{
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 164px;
+    height: 3px;
+    background: var(--hover);
+    clip-path: polygon(0 0, 100% 0, 95% 100%, 0 100%);
+}
+
+.banner_text h1{
+    position: relative;
+}
+
+.banner_text h1:after{
+    position: absolute;
+    content: '';
+    right: 0;
+    top: 0;
+    width: 3px;
+    height: 196px;
+    background: var(--hover);
+}
+
+.banner_text h1:before{
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 196px;
+    background: var(--hover);
+}
+
+.banner_text p{
+    position: relative;
+}
+
+.banner_text p:after{
+    position: absolute;
+    content: '';
+    right: 0;
+    bottom: -103px;
+    width: 93px;
+    height: 3px;
+    background: var(--hover);
+}
+
+.banner_text p:before{
+    position: absolute;
+    content: '';
+    left: 0;
+    bottom: 0;
+    width: 80px;
+    height: 3px;
+    background: var(--hover);
+}
+
+
+
+
+
         }
         .feature-image {
             background-color: #fff;
@@ -31,11 +113,21 @@
     </style>
 </head>
 <body>
-<div class="container mt-5">
-    <div class="header py-5 text-center">
-        <h1>About Us</h1>
-        <p>Discover more about what makes us the best at caring for your pet!</p>
-    </div>
+     <section id="banner">
+        <div class="banner_item main_overly" style="background: url(https://a.storyblok.com/f/152976/2400x1600/fdb0220f46/do-all-vets-take-pet-insurance.jpg) no-repeat center/cover;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 m-auto text-center text-white">
+                        <div class="banner_text">
+                            <h2>About Us</h2>
+                            <p>Say goodbye to endless phone calls and long queues. Book doctors' appointments, video consultations, ambulance service, manage medical records, and more. Take the first step towards better health.</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
     <h2 class="mt-4 mb-3">Our Services</h2>
     <div class="row">
