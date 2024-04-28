@@ -1,7 +1,6 @@
 import json
 from django.shortcuts import render, redirect, HttpResponse
-from .models import Products, Orders
-from .models import PetProfile
+from .models import Products, Orders,PetProfile
 from django.urls import reverse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth import views as auth_views
@@ -59,7 +58,7 @@ def index(request):
 #search code
     item_name =request.GET.get('item_name')
     if item_name != '' and item_name is not None:
-        product_objects = Products.objects.filter(title__icontains=item_name)
+        product_objects = Products.objects.filter(category__icontains=item_name)
 
 #paginator code
     paginator = Paginator(product_objects, 4)
@@ -79,6 +78,7 @@ def cart(request):
 def about_us(request):
     return render(request, 'shop/about_us.html')
 
+@login_required(login_url='login')
 def profile(request):
     return render(request, 'shop/profile.html')
 
