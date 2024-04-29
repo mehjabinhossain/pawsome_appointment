@@ -1,0 +1,53 @@
+{% extends "shop/base.html" %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Doctor</title>
+</head>
+<body>
+    {% block content %}
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col">
+                <h1>Book Doctor</h1>
+                <p class="lead">Select a date and time.</p>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Doctor: {{product.title}}</h5>
+                        <p class="card-text">Price: {{product.price}}/hr</p>
+                        <p class="card-text">Category: {{product.category}}</p>
+                    </div>
+                </div>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="booking_date" class="form-label">Booking Date:</label>
+                        <input type="date" class="form-control" id="booking_date" name="booking_date" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="booking_time" class="form-label">Booking Time:</label>
+                        <input type="time" class="form-control" id="booking_time" name="booking_time" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Book Doctor</button>
+                </form>
+                {% if messages %}
+    <div class="alert alert-info mt-3" role="alert">
+        <ul class="list-unstyled mb-0">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+
+            </div>
+        </div>
+    </div>
+    
+    {% endblock %}
+</body>
+</html>

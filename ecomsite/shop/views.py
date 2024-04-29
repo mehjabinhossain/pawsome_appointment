@@ -2,6 +2,7 @@ import json
 from django.shortcuts import render, redirect, HttpResponse
 from .models import Products, Orders,PetProfile
 from django.urls import reverse
+from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.models import User
@@ -80,21 +81,50 @@ def about_us(request):
 
 @login_required(login_url='login')
 def profile(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        species = request.POST['species']
+        age = request.POST['age']
+       
+        pet = PetProfile(owner=request.user, name=name, species=species, age=age)
+        pet.save()
     return render(request, 'shop/profile.html')
+
+@login_required(login_url='login')
+def petprofile(request):
+    pets = PetProfile.objects.filter(owner=request.user)
+    return render(request, 'shop/petprofile.html', {'pets': pets})
 
 
 def detail(request, id):
     product_object = Products.objects.get(id=id)
     return render(request, 'shop/detail.html',{'product_object':product_object})
 
+@login_required
+def book_doctor(request, product_id):
+    product = Products.objects.get(pk=product_id)
+    
+    if request.method == 'POST':
+        booking_date = request.POST['booking_date']
+        booking_time = request.POST['booking_time']
+        
+        
+        if not Products.objects.filter(available_date=booking_date, available_time=booking_time).exists():
+            
+            product.available_date = booking_date
+            product.available_time = booking_time
+            product.save()
+            return redirect('checkout')
+        else:
+            messages.error(request, 'Slot is already booked. Please select another slot.')
 
+    return render(request, 'shop/bookdoctor.html', {'product': product})
 
 
 
 def checkout(request):
     if request.method == 'POST':
         # Variables are initialized via POST data
-        items = json.loads(request.POST.get('items', '{}'))
         name = request.POST.get('name', "")
         email = request.POST.get('email', "")
         address = request.POST.get('address', "")
@@ -104,11 +134,11 @@ def checkout(request):
         total=request.POST.get('total', "")
 
         # Create and save the order when POST data is received
-        order = Orders(items=items, name=name, email=email, address=address, city=city, state=state, zip=zip,total=total)
+        order = Orders(name=name, email=email, address=address, city=city, state=state, zip=zip,total=total)
         order.save()
 
         # Redirect to a success page or render a template directly
-        return render(request, 'shop/checkout.html')
+        return redirect('index')
     else:
         # For GET and other methods, typically you show the form to fill out
         # You could also include initial data or context if necessary

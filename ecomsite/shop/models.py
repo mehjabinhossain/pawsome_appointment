@@ -9,8 +9,11 @@ class Products(models.Model):
     category = models.CharField(max_length=100)
     description = models.TextField()
     image = models.CharField(max_length=300)
+    available_date = models.DateField( blank=True, null=True)
+    available_time = models.TimeField( blank=True, null=True)
 
-#THIS
+    def __str__(self):
+        return self.title
 
 
 class Orders(models.Model):
@@ -32,8 +35,6 @@ class PetProfile(models.Model):
     age = models.IntegerField()
 
 
-
-    #
     def __str__(self):
         return self.name
 

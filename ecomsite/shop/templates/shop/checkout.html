@@ -1,3 +1,5 @@
+{% extends 'shop/base.html' %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,118 +9,52 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Home</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="#">Features</a>
-                <a class="nav-item nav-link" href="#">Pricing</a>
-                <a class="nav-item nav-link disabled" href="#">Disabled</a>
+  {% block content %}
+
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+        <form method="POST">
+            {% csrf_token %}
+            <input type="hidden" id="items" name="items">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" class="form-control" placeholder="Enter Your name">
             </div>
-        </div>
-    </nav>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <ul class="list-group" id="item_list">
-                    <!-- List group of clickable items will be populated here -->
-                </ul>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="text" class="form-control" placeholder="Enter your Email">
             </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-12"><br><br>
-                <form method="POST">
-                    {% csrf_token %}
-                    <input type="hidden" id="items" name="items">
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="name">Name</label>
-                            <input id="name" name="name" type="text" class="form-control" placeholder="John">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="email">Email</label>
-                            <input id="email" name="email" type="text" class="form-control" placeholder="john@gmail.com">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="address">Address</label>
-                        <input id="address" name="address" type="text" class="form-control" placeholder="1234 Main St">
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="city">City</label>
-                            <input id="city" name="city" type="text" class="form-control">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="state">State</label>
-                            <input id="state" name="state" type="text" class="form-control" placeholder="State">
-                        </div>
-                        <div class="form-group col-md-2">
-                            <label for="zip">Zip</label>
-                            <input id="zip" name="zip" type="text" class="form-control">
-                        </div>
-                        <div class="form-group col-md-2">
-                            <label for="total">Amount to be paid</label>
-                            <input readonly type="text" class="form-control" id="total" name="total">
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Place order</button>
-                </form>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input id="address" name="address" type="text" class="form-control" placeholder="Enter your address">
             </div>
-        </div>
-    </div>
-
-
-
-
-<div class="container">
-  <footer class="py-5">
-    <div class="row">
-
-
-      <div class="col-6 col-md-2 mb-3">
-        <h5>Section</h5>
-        <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-        </ul>
-      </div>
-
-
-
-      <div class="col-md-5 offset-md-1 mb-3">
-        <form>
-          <h5>Subscribe to our newsletter</h5>
-          <p>Monthly digest of what's new and exciting from us.</p>
-          <div class="d-flex flex-column flex-sm-row w-100 gap-2">
-            <label for="newsletter1" class="visually-hidden">Email address</label>
-            <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
-            <button class="btn btn-primary" type="button">Subscribe</button>
-          </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="city">City</label>
+                    <input id="city" name="city" type="text" class="form-control">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="state">State</label>
+                    <input id="state" name="state" type="text" class="form-control" placeholder="State">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="zip">Zip</label>
+                    <input id="zip" name="zip" type="text" class="form-control">
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="total">Amount to be paid</label>
+                    <input type="text" class="form-control" id="total" name="total">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-2">Complete appointment</button>
         </form>
-      </div>
     </div>
-
-    <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
-      <ul class="list-unstyled d-flex">
-        <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
-        <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
-        <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
-      </ul>
-    </div>
-  </footer>
 </div>
-<br>
-<section class="">
+
+  
+
+
+<section class="mt-5">
   <!-- Footer -->
   <footer class="text-center text-white" style="background-color: #3f04c2;">
     <!-- Grid container -->
@@ -147,24 +83,6 @@
 </section>
 
 </body>
-
-    <script type="text/javascript">
-        $(document).ready(function() {
-            var cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : {};
-            let total = 0;
-            for (let item in cart) {
-                let name = cart[item][1];
-                let quantity = cart[item][0];
-                let price = cart[item][2];
-                total += price;
-                let itemString = `<li class="list-group-item"><span>${quantity}</span> of ${name} <span class="badge bg-primary badge-pill">$${price}</span></li>`;
-                $('#item_list').append(itemString);
-            }
-            let totalPrice = `<li class="list-group-item d-flex justify-content-between align-items-center"><b>Your total</b> ${total}</li>`;
-            $('#total').val(total);
-            $('#item_list').append(totalPrice);
-            $('#items').val(JSON.stringify(cart));
-        });
-    </script>
+    {% endblock %}
 </body>
 </html>
