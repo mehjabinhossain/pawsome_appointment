@@ -16,7 +16,7 @@
 
   <div class="row justify-content-center">
     <div class="col-md-8">
-        <form method="POST">
+        <form method="POST" style="background-color: #37acef; padding: 50px;  box-shadow: 2px 2px 20px 20px #95cded;">
             {% csrf_token %}
             <input type="hidden" id="items" name="items">
             <div class="form-group">
@@ -48,8 +48,8 @@
                     <label for="total">Amount to be paid</label>
                     <input type="text" class="form-control" id="total" name="total">
                 </div>
-            </div>
-            <button type="submit" class="btn btn-primary mt-2">Complete appointment</button>
+            </div><br>
+            <button type="submit" class="btn btn-primary mt-2" style="background-color: #616d6c;">Complete appointment</button>
         </form>
     </div>
 </div>
@@ -59,18 +59,11 @@
 
 <section class="mt-5">
   <!-- Footer -->
-  <footer class="text-center text-white" style="background-color: #3f04c2;">
+  <footer class="text-center text-white" style="background-color: #37acef;">
     <!-- Grid container -->
     <div class="container p-4 pb-0">
       <!-- Section: CTA -->
-      <section class="">
-        <p class="d-flex justify-content-center align-items-center">
-          <span class="me-3">Register for free</span>
-          <button data-mdb-ripple-init type="button" class="btn btn-outline-light btn-rounded">
-            Sign up!
-          </button>
-        </p>
-      </section>
+
       <!-- Section: CTA -->
     </div>
     <!-- Grid container -->
