@@ -12,14 +12,14 @@
 {% block content %}
 
 <div class="container">
-    <div class="profile-header text-center border">
+    <div class="profile-header text-center border" style="background-color: #d8e5ed;">
         <h1>User and Pet Profile</h1>
     </div>
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-10">
+    <div class="container mt-5" >
+        <div class="row justify-content-center" >
+            <div class="col-md-12">
                 <div class="card shadow-sm">
-                    <div class="card-body">
+                    <div class="card-body" style="background-color: #37acef;">
                         <h3 class="card-title text-center mb-4">User Profile</h3>
                         <form id="userForm">
                             <div class="mb-3">
@@ -36,13 +36,20 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div><br>
     
     <div class="container mt-2">
-        <div class="row justify-content-center">
-            <div class="col-md-10">
-                <div class="card shadow-sm">
+        <div class="row">
+            <div class="col-md-6 p-0">
+                <div class="card">
                     <div class="card-body">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKSYmdwK3kLawMMTKh10NIErZ4LHYnosyAkC1FeCqi2g&s" class="card-img-top" alt="...">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 p-0">
+                <div class="card shadow-sm">
+                    <div class="card-body" style="background-color: #d8e5ed;">
                         <h3 class="card-title">Pet Profile</h3>
                         <p class="card-text lead">Add your pet's information.</p>
                         <form method="post">
@@ -60,7 +67,7 @@
                                 <input type="number" id="age" name="age" class="form-control" required>
                             </div>
                             <button type="submit" class="btn btn-primary">Upload Pet</button>
-                        </form>
+                        </form><br>
                         <a href="{% url 'petprofile' %}" class="mt-3 btn btn-secondary">View Pet Profile</a>
                     </div>
                 </div>
