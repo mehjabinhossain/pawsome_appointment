@@ -10,11 +10,10 @@
 <body>
     {% block content %}
 
-    <div class="container mt-5">
+    <div class="container mt-8">
         <div class="row">
-            <div class="col">
+            <div class="col" style="background-color: #37acef; padding: 50px;">
                 <h1>Book Doctor</h1>
-                <p class="lead">Select a date and time.</p>
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Doctor: {{product.title}}</h5>
@@ -22,17 +21,17 @@
                         <p class="card-text">Category: {{product.category}}</p>
                     </div>
                 </div>
-                <form method="post">
+                <br><form method="post">
                     {% csrf_token %}
                     <div class="mb-3">
-                        <label for="booking_date" class="form-label">Booking Date:</label>
+                        <label for="booking_date" class="form-label" style="font-weight:bold;;">Booking Date:</label>
                         <input type="date" class="form-control" id="booking_date" name="booking_date" required>
-                    </div>
+                    </div><br>
                     <div class="mb-3">
-                        <label for="booking_time" class="form-label">Booking Time:</label>
+                        <label for="booking_time" class="form-label" style="font-weight:bold;">Booking Time:</label>
                         <input type="time" class="form-control" id="booking_time" name="booking_time" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Book Doctor</button>
+                    </div><br>
+                    <button type="submit" class="btn btn-primary" style="background-color: #616d6c;" >Book Doctor</button>
                 </form>
                 {% if messages %}
     <div class="alert alert-info mt-3" role="alert">
