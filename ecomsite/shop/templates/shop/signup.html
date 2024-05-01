@@ -17,39 +17,23 @@
     box-sizing: border-box;
 }
 body{
-    background-color: #380269;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Add this to prevent scrolling */
 }
 .background{
-    width: 430px;
-    height: 520px;
     position: absolute;
-    transform: translate(-50%,-50%);
-    left: 50%;
-    top: 50%;
-}
-.background .shape{
-    height: 200px;
-    width: 200px;
-    position: absolute;
-    border-radius: 50%;
-}
-.shape:first-child{
-    background: linear-gradient(
-        #01040f,
-        #23a2f6
-    );
-    left: -80px;
-    top: -80px;
-}
-
-.shape:last-child{
-    background: linear-gradient(
-        to right,
-        #f62e08,
-        #f09819
-    );
-    right: -30px;
-    bottom: -80px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('	https://c8.alamy.com/comp/2MX97W6/set-with-different-cute-pets-on-white-background-2MX97W6.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(50%);
+    z-index: -1; /* Move the background behind other elements */
 }
 form{
     height: 600px;
@@ -137,12 +121,11 @@ button{
 </head>
 <body>
     <div class="background">
-        <div class="shape"></div>
-        <div class="shape"></div>
+         <img src=src="https://v.fastcdn.co/u/d2739e00/64794775-0-a955bf-d0d2f5050f124.webp" alt="">
     </div>
     <form action="" method="post">
         {% csrf_token %}
-        <h3>Signup Here</h3>
+        <h3>Admin Signup Here</h3>
 
         <label for="username">Enter Username</label>
         <input type="text" placeholder="Username" name="username" id="username">
