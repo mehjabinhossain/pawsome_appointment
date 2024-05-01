@@ -2,196 +2,116 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Pawsome Appointment </title>
+    <title>Pawsome Appointment</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
         body {
             background-color: #f0f9ff;
             color: #333;
         }
-.banner_item{
-    padding: 254px 0 117px;
-}
 
-.banner_item:after{
-    background: rgba(199, 4, 4, 0.6);
-}
-.banner_text h2{
-    position: relative;
-}
-
-.banner_text h2:after{
-    position: absolute;
-    content: '';
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 109px;
-    height: 3px;
-    background: var(--hover);
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 5% 100%);
-}
-
-.banner_text h2:before{
-    position: absolute;
-    content: '';
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 164px;
-    height: 3px;
-    background: var(--hover);
-    clip-path: polygon(0 0, 100% 0, 95% 100%, 0 100%);
-}
-
-.banner_text h1{
-    position: relative;
-}
-
-.banner_text h1:after{
-    position: absolute;
-    content: '';
-    right: 0;
-    top: 0;
-    width: 3px;
-    height: 196px;
-    background: var(--hover);
-}
-
-.banner_text h1:before{
-    position: absolute;
-    content: '';
-    left: 0;
-    top: 0;
-    width: 3px;
-    height: 196px;
-    background: var(--hover);
-}
-
-.banner_text p{
-    position: relative;
-}
-
-.banner_text p:after{
-    position: absolute;
-    content: '';
-    right: 0;
-    bottom: -103px;
-    width: 93px;
-    height: 3px;
-    background: var(--hover);
-}
-
-.banner_text p:before{
-    position: absolute;
-    content: '';
-    left: 0;
-    bottom: 0;
-    width: 80px;
-    height: 3px;
-    background: var(--hover);
-}
-     }
-        .feature-image {
-            background-color: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        .banner_item {
+            background: url(https://t4.ftcdn.net/jpg/02/69/47/89/360_F_269478900_EEEXPJa7ohrxraL6L6V2GlmltteALheQ.jpg) no-repeat center/cover;
+            padding: 254px 0 117px;
+            position: relative;
         }
+
+        .banner_item:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+             background: rgba(0, 0, 0, 0.6);
+        }
+
+        .banner_text {
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-image {
+            display: flex;
+            padding: 0 0;
+            height: 97%;
+        }
+
         .feature-item {
-            background-color: #ffefe0;
             border-left: 5px solid #ffab73;
             margin-bottom: 20px;
             padding: 10px 20px;
             border-radius: 5px;
         }
+
+        footer {
+            background-color: #2c8abf;
+            padding: 20px 0;
+        }
+
     </style>
 </head>
 <body>
-     <section id="banner">
-        <div class="banner_item main_overly" style="background: url(https://a.storyblok.com/f/152976/2400x1600/fdb0220f46/do-all-vets-take-pet-insurance.jpg) no-repeat center/cover;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 m-auto text-center text-white">
-                        <div class="banner_text">
-                            <h2>About Us</h2>
-                            <p>Say goodbye to endless phone calls and long queues. Book doctors' appointments, video consultations, ambulance service, manage medical records, and more. Take the first step towards better health.</p>
-
-                        </div>
+<section id="banner">
+    <div class="banner_item main_overly">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 m-auto text-center text-white">
+                    <div class="banner_text">
+                        <h2>About Us</h2>
+                        <p>Say goodbye to endless phone calls and long queues. Book doctors' appointments, video consultations, ambulance service, manage medical records, and more. Take the first step towards better health.</p>
                     </div>
                 </div>
             </div>
         </div>
-
-
-    <h2 class="mt-4 mb-3">Our Services</h2>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="feature-item">
-                <h3>Personalized Pet Profiles</h3>
-                <p>Create detailed profiles for your pets, including information on breed, age, and medical history.</p>
-            </div>
-            <div class="feature-item">
-                <h3>Seamless Veterinary Appointments</h3>
-                <p>Easily schedule and manage veterinary appointments tailored to your pet's specific health needs.</p>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <img class="feature-image img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgD1lDmwjMrZG642-o1121EBXiNJ7fGJi0WQ&s" alt="Pets Profiles">
-        </div>
     </div>
-    <div class="row">
-        <div class="col-md-6">
-            <img class="feature-image img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_U7smagooGk7OTL8gSbjJM8xPyETYMfCoosNFxwlaafTMG_IrnKtRvBp_YSvV-zAEAkg&usqp=CAU" alt="Veterinary Network">
-        </div>
-        <div class="col-md-6">
-            <div class="feature-item">
-                <h3>Expert Veterinary Network</h3>
-                <p>Access a network of trusted veterinarians for routine check-ups, medical treatments, or specialized care.</p>
-            </div>
-            <div class="feature-item">
-                <h3>Advanced Search Functionality</h3>
-                <p>Use our robust search tool to find veterinarians based on specific symptoms or medical conditions, ensuring that your pet receives the best possible care.</p>
-            </div>
-        </div>
-    </div>
-
-    <p class="mt-3">At Pet Portal, our mission is to enhance the connection between pet owners and veterinary professionals, ensuring that your pet always receives timely and effective care. Join us in revolutionizing pet care management!</p>
-
+</section>
 
 
 <div class="container">
-  <footer class="py-5">
+    <h2 class="mt-4 mb-8">Our Services</h2>
     <div class="row">
-
-
-  <!-- Footer -->
-  <footer class="text-center text-white" style="background-color: #3f04c2;">
-    <!-- Grid container -->
-    <div class="container p-4 pb-0">
-      <!-- Section: CTA -->
-      <section class="">
-        <p class="d-flex justify-content-center align-items-center">
-          <span class="me-3">Register for free</span>
-          <button data-mdb-ripple-init type="button" class="btn btn-outline-light btn-rounded">
-            Sign up!
-          </button>
-        </p>
-      </section>
-      <!-- Section: CTA -->
+        <div class="col-md-6">
+            <div class="feature-item" style="background-color: #37acef;">
+                <h3>Personalized Pet Profiles</h3>
+                <p>Personalized Pet Profiles offer a comprehensive way to manage and track your pet's health and well-being. By creating detailed profiles for each of your pets, you can conveniently store essential information such as breed, age, medical history, vaccination records, dietary preferences, and more in one centralized location.</p>
+            </div>
+            <div class="feature-item" style="background-color: #37acef;">
+                <h3>Seamless Veterinary Appointments</h3>
+                <p>Seamless Veterinary Appointments revolutionize the way pet owners interact with veterinary care services, offering convenience, efficiency, and peace of mind. With this innovative solution, scheduling and managing veterinary appointments becomes a hassle-free experience tailored to your pet's specific health needs.</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="feature-image">
+            <img class="feature-image img-fluid" src="https://www.arl-iowa.org/webres/Image/News/catandbaby.jpg" alt="Pets Profiles">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="feature-image">
+            <img class="feature-image img-fluid" src="https://c8.alamy.com/comp/2CPJC8K/dogs-veterinary-…re-for-vet-clinic-vector-illustration-2CPJC8K.jpg" alt="Pets Profiles">
+            </div>
+        </div>
     </div>
-    <!-- Grid container -->
-
-    <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-      @Mehjabin @Soumit @Nanjiba
-
+    <div class="row">
+        <div class="col-md-6">
+            <img class="feature-image img-fluid" src="https://cdn.britannica.com/37/91837-050-2CC301F9/Children-pet-dog.jpg" alt="Veterinary Network">
+        </div>
+        <div class="col-md-6">
+            <div class="feature-item" style="background-color: #37acef;">
+                 <h3>Expert Veterinary Network</h3>
+                <p>An Expert Veterinary Network brings together a community of trusted and knowledgeable veterinarians dedicated to providing top-quality care for pets. This network comprises experienced professionals with diverse expertise spanning various areas of veterinary medicine, including general practice, specialty care, emergency medicine, and more.</p>
+            </div>
+            <div class="feature-item" style="background-color: #37acef;">
+                <h3>Advanced Search Functionality</h3>
+                <p>Advanced Search Functionality in the context of veterinary care provides pet owners with powerful tools to find the most relevant and suitable veterinary services for their pets' needs. This feature goes beyond basic search capabilities, allowing users to refine their search criteria based on specific symptoms, medical conditions, location preferences, and more.</p>
+            </div>
+        </div>
     </div>
-    <!-- Copyright -->
-  </footer>
-  <!-- Footer -->
-</section>
-
 </div>
-</body>
-</html>
+
+<footer>
+    <div class="container">
+        <div class="row" >
+
+        </div>
+        </div>
