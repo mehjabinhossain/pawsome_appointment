@@ -13,23 +13,29 @@
     <link rel="stylesheet" href="{% static 'shop/style.css' %}">
     <title>Pawsome</title>
     <style>
-<style>
+ .btn-view {
+        background-color: #37acef; /* Change to the desired color */
+        color: #fff; /* Text color */
+        border-color: #17a2b8; /* Border color */
+    }
 
-</style>
+    .btn-view:hover {
+        background-color: #138496; /* Darker color on hover */
+        border-color: #117a8b; /* Darker border color on hover */
+    }
     </style>
 </head>
 <body>
   {% block content %}
  <div class="container">
-     <div class="search-info">
-     <div class="row">
-       <div class="col-md-12">
-        <form class="card card-sm">
+     <div class="row" >
+       <div class="col-md-12" >
+        <form class="card card-sm"  style="background-color: #37acef;">
         <div class="card-body row no-gutters allign-item-center">
         <div class="col">
             <input type="search" name='item_name' placeholder="Search for doctors" class="form-control form-control-borderless">
         </div>
-            <div class="col-auto">
+            <div class="col-auto color">
                 <button class="btn btn-sucess" type="submit">Search</button>
             </div>
         </div>
@@ -37,21 +43,21 @@
 
        </div>
      </div>
-     </div>
 
 
 
 
-     <div class="row">
+
+     <div class="row" >
       {% for product in product_objects %}
       <div class="col-md-3">
-          <div class="card border-0 shadow-sm mb-4">
+          <div class="card border-0 shadow-sm mb-4" >
               <img src="{{ product.image }}" class="card-img-top" alt="{{ product.title }}">
               <div class="card-body">
                   <h5 class="card-title">{{ product.title }}</h5>
                   <p class="card-text text-primary">${{ product.price }}/hr</p>
-                  <div class="d-grid gap-2">
-                      <a href="/{{ product.id }}" class="btn btn-secondary">View</a>
+                  <div class="d-grid gap-2" >
+                      <a href="/{{ product.id }}" class="btn btn-secondary"  style="background-color: #37acef;">View</a>
                       <a href="{% url 'book_doctor' product.id %}" class="btn btn-outline-success">Appoint</a>
                   </div>
               </div>
@@ -59,14 +65,14 @@
       </div>
       {% endfor %}
   </div>
-  
+
 
 
    <div class="row">
-       <div class="col-md-3 offset-md-4">
-           <ul class="pagination">
+       <div class="col-md-3 offset-md-4" >
+           <ul class="pagination"  >
                {% if product_objects.has_previous %}
-               <li class="page-item">
+               <li class="page-item"  >
                    <a class="page-link" href="?page={{ product_objects.previous_page_number }}">Previous</a>
                </li>
                {% endif %}
@@ -87,7 +93,7 @@
 
 <section class="">
   <!-- Footer -->
-  <footer class="text-center text-white" style="background-color: #3f04c2;">
+  <footer class="text-center text-white" style="background-color: #37acef;">
     <!-- Grid container -->
     <div class="container p-4 pb-0">
       <!-- Section: CTA -->
